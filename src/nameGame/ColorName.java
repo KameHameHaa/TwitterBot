@@ -194,8 +194,8 @@ public class ColorName {
 				rmd.color1= color1;
 				rmd.color2 = color2;
 				rmd.value = cl;
-				rmd.color1.stereotype.toUpperCase();
-				rmd.color2.stereotype.toUpperCase();
+				rmd.color1.stereotype=rmd.color1.stereotype.toUpperCase();
+				rmd.color2.stereotype=rmd.color2.stereotype.toUpperCase();
 				rmd.linguisticScore= calculateLinguisticScore(color1.stereotype,color2.stereotype);
 				
 				if(rmd!=null)
@@ -327,8 +327,8 @@ public class ColorName {
 		{
 			color= vReadyMade.elementAt(i);
 			
-			if(!color.color2.stereotype.equals(stereotype))
-			continue;
+		//	if(!color.color2.stereotype.equals(stereotype))
+		//	continue;
 			
 			distance= distanceColor(inputColor, color.value );
 			norDis =1 - (double) (2*(double)distance/(double)(inputColor.getRed()+color.value.getRed()+inputColor.getBlue()+color.value.getBlue()+inputColor.getGreen()+color.value.getGreen() ));
@@ -342,7 +342,7 @@ public class ColorName {
 		}		
 		
 		//System.out.println(maxScore);
-		if(maxScore > 0.95)
+		if(maxScore > 0.9)
 		return minColor;
 		else return null;
 	}
